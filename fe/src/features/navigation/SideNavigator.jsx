@@ -14,10 +14,10 @@ const SideNavigator = (props) => {
     return (
         <div className="flex flex-col w-1/3 rounded border-5 border-black font-mono">
             <div className="flex h-1/9 bg-black">
-                <div className="flex justify-center place-items-center w-1/2 cursor-pointer text-teal-500 hover:bg-teal-900 hover:text-black">
+                <div className="flex justify-center place-items-center w-1/2 cursor-pointer text-teal-500 hover:bg-teal-200 hover:text-black">
                     Tools
                 </div>
-                <div className="flex justify-center place-items-center w-1/2 cursor-pointer text-teal-500 hover:bg-teal-900 hover:text-black">
+                <div className="flex justify-center place-items-center w-1/2 cursor-pointer text-teal-500 hover:bg-teal-200 hover:text-black">
                     Gallery
                 </div>
             </div>
