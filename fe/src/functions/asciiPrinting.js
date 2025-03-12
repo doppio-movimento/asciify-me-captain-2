@@ -1,3 +1,3 @@
 export const asciiPrintStd = (string) => {
-   return "hello"; 
-}
+    return 'hello';
+};
