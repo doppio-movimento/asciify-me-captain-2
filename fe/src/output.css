@@ -54,16 +54,21 @@
     --color-cyan-700: oklch(0.52 0.105 223.128);
     --color-cyan-800: oklch(0.45 0.085 224.283);
     --color-blue-200: oklch(0.882 0.059 254.128);
+    --color-blue-400: oklch(0.707 0.165 254.624);
     --color-blue-500: oklch(0.623 0.214 259.815);
     --color-blue-600: oklch(0.546 0.245 262.881);
+    --color-blue-700: oklch(0.488 0.243 264.376);
     --color-blue-800: oklch(0.424 0.199 265.638);
     --color-blue-900: oklch(0.379 0.146 265.522);
     --color-blue-950: oklch(0.282 0.091 267.935);
     --color-purple-500: oklch(0.627 0.265 303.9);
+    --color-fuchsia-200: oklch(0.903 0.076 319.62);
     --color-fuchsia-300: oklch(0.833 0.145 321.434);
     --color-fuchsia-400: oklch(0.74 0.238 322.16);
+    --color-fuchsia-500: oklch(0.667 0.295 322.15);
     --color-fuchsia-600: oklch(0.591 0.293 322.896);
     --color-fuchsia-700: oklch(0.518 0.253 323.949);
+    --color-fuchsia-900: oklch(0.401 0.17 325.612);
     --color-fuchsia-950: oklch(0.293 0.136 325.661);
     --color-pink-950: oklch(0.284 0.109 3.907);
     --color-gray-200: oklch(0.928 0.006 264.531);
@@ -74,6 +79,8 @@
     --color-gray-800: oklch(0.278 0.033 256.848);
     --color-gray-900: oklch(0.21 0.034 264.665);
     --color-gray-950: oklch(0.13 0.028 261.692);
+    --color-neutral-300: oklch(0.87 0 0);
+    --color-neutral-400: oklch(0.708 0 0);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -278,6 +285,9 @@
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
+  }
+  .left-2 {
+    left: calc(var(--spacing) * 2);
   }
   .left-10 {
     left: calc(var(--spacing) * 10);
@@ -773,6 +783,15 @@
   .border-blue-200 {
     border-color: var(--color-blue-200);
   }
+  .border-blue-400 {
+    border-color: var(--color-blue-400);
+  }
+  .border-blue-500 {
+    border-color: var(--color-blue-500);
+  }
+  .border-fuchsia-900 {
+    border-color: var(--color-fuchsia-900);
+  }
   .border-green-400 {
     border-color: var(--color-green-400);
   }
@@ -808,6 +827,9 @@
   }
   .bg-black {
     background-color: var(--color-black);
+  }
+  .bg-blue-400 {
+    background-color: var(--color-blue-400);
   }
   .bg-blue-500 {
     background-color: var(--color-blue-500);
@@ -881,6 +903,9 @@
   .bg-gray-800 {
     background-color: var(--color-gray-800);
   }
+  .bg-gray-900 {
+    background-color: var(--color-gray-900);
+  }
   .bg-gray-950 {
     background-color: var(--color-gray-950);
   }
@@ -910,6 +935,12 @@
   }
   .bg-lime-950 {
     background-color: var(--color-lime-950);
+  }
+  .bg-neutral-300 {
+    background-color: var(--color-neutral-300);
+  }
+  .bg-neutral-400 {
+    background-color: var(--color-neutral-400);
   }
   .bg-orange-500 {
     background-color: var(--color-orange-500);
@@ -943,6 +974,9 @@
   }
   .bg-teal-950 {
     background-color: var(--color-teal-950);
+  }
+  .bg-white {
+    background-color: var(--color-white);
   }
   .bg-yellow-500 {
     background-color: var(--color-yellow-500);
@@ -1023,6 +1057,15 @@
   .text-black {
     color: var(--color-black);
   }
+  .text-blue-400 {
+    color: var(--color-blue-400);
+  }
+  .text-blue-500 {
+    color: var(--color-blue-500);
+  }
+  .text-blue-700 {
+    color: var(--color-blue-700);
+  }
   .text-cyan-200 {
     color: var(--color-cyan-200);
   }
@@ -1034,6 +1077,9 @@
   }
   .text-fuchsia-400 {
     color: var(--color-fuchsia-400);
+  }
+  .text-fuchsia-500 {
+    color: var(--color-fuchsia-500);
   }
   .text-fuchsia-600 {
     color: var(--color-fuchsia-600);
@@ -1135,6 +1181,20 @@
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .hover\:bg-fuchsia-200 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-fuchsia-200);
+      }
+    }
+  }
+  .hover\:bg-fuchsia-600 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-fuchsia-600);
+      }
+    }
   }
   .hover\:bg-teal-200 {
     &:hover {
