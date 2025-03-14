@@ -11,14 +11,14 @@ const Root = (props) => {
             <Header
                 title={'asciify me captain'}
                 colors={[
-                    [235, 89, 5],
-                    [100, 255, 100],
-                    [255, 0, 205],
+                    [255, 255, 255],
+                    [66, 227, 245],
+                    [66, 245, 182],
                 ]}
             />
-            <div className="flex bg-gray-900 p-5 gap-5 rounded h-7/9">
+            <div className="flex bg-gray-950 p-5 gap-5 rounded h-7/9">
                 <SideNavigator />
-                <div className="flex justify-center place-items-center rounded bg-gray-900 w-2/3 p-2">
+                <div className="flex justify-center place-items-center rounded bg-gray-950 w-2/3 p-2">
                     <Outlet />
                 </div>
             </div>

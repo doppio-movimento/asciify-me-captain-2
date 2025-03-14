@@ -11,8 +11,9 @@ const Home = (props) => {
                 <ModeBox />
                 <DownloadBox />
             </div>
-            <div className="h-full w-6/9 overflow-hidden flex justify-center place-items-center rounded">
+            <div className="h-full w-6/9 overflow-hidden flex justify-center place-items-center rounded drop-shadow-md border border-white">
                 <img src={'/blackhole.png'} alt="asciify it" />
+                <div className="w-8 h-8 bg-white"></div>
             </div>
             <div className="h-full w-2/9 flex flex-col gap-2 p-2">
                 <GridBox />

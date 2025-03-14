@@ -1,6 +1,6 @@
 const ModeBox = (props) => {
     return (
-        <div className="h-1/3 border border-fuchsia-900 w-full">
+        <div className="h-1/3 border border-cyan-900 w-full rounded">
             <div className="flex flex-col h-full">
                 <div className="flex justify-center place-items-center text-sm font-mono text-white pt-3 h-1/5">
                     Mode
