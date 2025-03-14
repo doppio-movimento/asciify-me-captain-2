@@ -609,6 +609,9 @@
   .w-120 {
     width: calc(var(--spacing) * 120);
   }
+  .w-\[1px\] {
+    width: 1px;
+  }
   .w-full {
     width: 100%;
   }
@@ -675,6 +678,18 @@
   }
   .resize {
     resize: both;
+  }
+  .grid-flow-col {
+    grid-auto-flow: column;
+  }
+  .grid-flow-row {
+    grid-auto-flow: row;
+  }
+  .auto-rows-max {
+    grid-auto-rows: max-content;
+  }
+  .grid-cols-\[repeat\(auto-fill\,_minmax\(100px\,_1fr\)\)\] {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
   .flex-col {
     flex-direction: column;
