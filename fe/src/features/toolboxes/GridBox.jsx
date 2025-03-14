@@ -1,4 +1,8 @@
+import { useToolbox } from "../../contexts/ToolboxContext";
+
 const GridBox = (props) => {
+    const { gridOn, setGridOn } = useToolbox();
+
     return (
         <div className="h-2/5 border border-cyan-900 rounded">
             <div className="flex flex-col h-full place-items-center gap-5">
@@ -6,7 +10,7 @@ const GridBox = (props) => {
                     Grid
                 </div>
                 <div className="relative h-1/7 w-full flex justify-center">
-                    <div className="w-4/7 bg-black h-4 rounded-xl bg-cyan-950 relative">
+                    <div className="w-4/7 bg-black h-4 rounded-xl bg-cyan-950 relative" onClick={() => setGridOn(!gridOn)}>
                         <div className="absolute top-[50%] translate-y-[-50%] z-10 w-7 h-7 rounded-full bg-cyan-400 text-xs flex justify-center place-items-center">
                             ON
                         </div>
