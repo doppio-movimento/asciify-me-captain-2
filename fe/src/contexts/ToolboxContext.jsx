@@ -4,10 +4,11 @@ const ToolboxContext = createContext(null);
 
 export const ToolboxProvider = ({ children }) => {
     const [gridOn, setGridOn] = useState(true);
+    const [frameOn, setFrameOn] = useState(false);
     const [granularity, setGranularity] = useState(1);
 
     return (
-        <ToolboxContext.Provider value={{ gridOn, setGridOn, granularity, setGranularity }}>
+        <ToolboxContext.Provider value={{ gridOn, setGridOn, granularity, setGranularity, frameOn, setFrameOn }}>
             {children}
         </ToolboxContext.Provider>
     );

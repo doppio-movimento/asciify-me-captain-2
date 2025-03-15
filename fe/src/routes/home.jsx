@@ -3,7 +3,7 @@ import DownloadBox from '../features/toolboxes/download/DownloadBox';
 import GridBox from '../features/toolboxes/grid/GridBox';
 import GrayscaleBox from '../features/toolboxes/grayscale/GrayscaleBox';
 import ASCIITransformBox from '../features/toolboxes/ascii_transform/ASCIITransformBox';
-import Grid from "../features/grid/Grid";
+import ImageDisplay from "../features/image_display/ImageDisplay";
 import { ToolboxProvider } from '../contexts/ToolboxContext';
 
 const Home = (props) => {
@@ -14,10 +14,7 @@ const Home = (props) => {
                     <ModeBox />
                     <DownloadBox />
                 </div>
-                <div className="relative h-full w-6/9 overflow-hidden flex justify-center place-items-center drop-shadow-md">
-                    <img src={'/skull.png'} alt="asciify it" />
-                        <Grid />
-                </div>
+                <ImageDisplay />
                 <div className="h-full w-2/9 flex flex-col gap-2 p-2">
                     <GridBox />
                     <GrayscaleBox />

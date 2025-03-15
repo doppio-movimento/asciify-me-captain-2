@@ -1,7 +1,7 @@
-import { useToolbox } from '../../contexts/ToolboxContext';
+import { useToolbox } from '../../../contexts/ToolboxContext';
 
 const Grid = (props) => {
-    const { gridOn, setGridOn, granularity } = useToolbox();
+    const { gridOn, setGridOn, granularity, frameOn } = useToolbox();
 
     return (
         <>
@@ -11,14 +11,14 @@ const Grid = (props) => {
                         {Array.from(
                             Array(Math.trunc(Math.sqrt(granularity))).keys(),
                         ).map((key, index) => (
-                            <div className="w-full h-[1px] bg-cyan-500 opacity-50"></div>
+                            <div className="w-full h-[1px] bg-amber-500 opacity-50"></div>
                         ))}
                     </div>
                     <div className="absolute grid grid-flow-col z-10 w-full h-full">
                         {Array.from(
                             Array(Math.trunc(Math.sqrt(granularity))).keys(),
                         ).map((key, index) => (
-                            <div className="w-[1px] h-full bg-cyan-500 opacity-50"></div>
+                            <div className="w-[1px] h-full bg-amber-500 opacity-50"></div>
                         ))}
                     </div>
                 </>
