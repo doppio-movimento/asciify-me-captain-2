@@ -1,7 +1,11 @@
-import { useToolbox } from "../../contexts/ToolboxContext";
+import { useToolbox } from "../../../contexts/ToolboxContext";
+import GranularitySlider from "./tools/GranularitySlider";
+import { useState } from "react";
 
 const GridBox = (props) => {
     const { gridOn, setGridOn } = useToolbox();
+    const [readyToDrag, setReadyToDrag] = useState(false);
+    const [dialPosition, setDialPosition] = useState(0);
 
     return (
         <div className="h-2/5 border border-cyan-900 rounded">
@@ -33,14 +37,7 @@ const GridBox = (props) => {
                     </div>
                     <div className="w-5 h-5 bg-cyan-500 border border-cyan-500"></div>
                 </div>
-                <div className="h-2/7 w-full flex flex-col place-items-center gap-2 mb-2">
-                    <div className="text-cyan-500 font-mono flex justify-center text-xs">
-                        Granularity
-                    </div>
-                    <div className="border-solid border-r-cyan-950 border-r-130 border-y-transparent border-y-8 border-l-0 relative">
-                        <div className="absolute w-6 h-6 bg-cyan-500 rounded-full top-[50%] translate-y-[-50%] left-23"></div>
-                    </div>
-                </div>
+                <GranularitySlider />
             </div>
         </div>
     );

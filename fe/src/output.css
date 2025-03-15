@@ -1276,6 +1276,9 @@
   .opacity-2 {
     opacity: 2%;
   }
+  .opacity-50 {
+    opacity: 50%;
+  }
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;

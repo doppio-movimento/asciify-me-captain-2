@@ -1,8 +1,8 @@
-import ModeBox from '../features/toolboxes/ModeBox';
-import DownloadBox from '../features/toolboxes/DownloadBox';
-import GridBox from '../features/toolboxes/GridBox';
-import GrayscaleBox from '../features/toolboxes/GrayscaleBox';
-import ASCIITransformBox from '../features/toolboxes/ASCIITransformBox';
+import ModeBox from '../features/toolboxes/mode/ModeBox';
+import DownloadBox from '../features/toolboxes/download/DownloadBox';
+import GridBox from '../features/toolboxes/grid/GridBox';
+import GrayscaleBox from '../features/toolboxes/grayscale/GrayscaleBox';
+import ASCIITransformBox from '../features/toolboxes/ascii_transform/ASCIITransformBox';
 import Grid from "../features/grid/Grid";
 import { ToolboxProvider } from '../contexts/ToolboxContext';
 
