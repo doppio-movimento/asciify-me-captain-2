@@ -3,6 +3,7 @@ import GranularitySlider from "./tools/GranularitySlider";
 import StatusSwitch from "./tools/StatusSwitch";
 import FrameCheckBox from "./tools/FrameCheckBox";
 import FreeformCheckBox from "./tools/FreeformCheckBox";
+import ColorSelector from "./tools/ColorSelector";
 import { useState } from "react";
 
 const GridBox = (props) => {
@@ -16,10 +17,7 @@ const GridBox = (props) => {
                     Grid
                 </div>
                 <StatusSwitch />
-                <div className="flex justify-between w-2/3 h-1/7">
-                    <div className="text-cyan-400 font-mono text-xs">Color</div>
-                    <div className="w-5 h-5 bg-amber-600"></div>
-                </div>
+                <ColorSelector />
                 <FrameCheckBox />
                 <FreeformCheckBox />
                 <GranularitySlider />

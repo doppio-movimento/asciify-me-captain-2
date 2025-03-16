@@ -2,7 +2,7 @@ import { useToolbox } from '../../../../contexts/ToolboxContext';
 import { useState, useEffect, useRef } from 'react';
 
 const GranularitySlider = (props) => {
-    const { granularity, setGranularity } = useToolbox();
+    const { setGranularity } = useToolbox();
     const [containerRect, setContainerRect] = useState(null);
     const [sliderRect, setSliderRect] = useState(null);
     const [mouseDown, setMouseDown] = useState(false);
@@ -24,11 +24,9 @@ const GranularitySlider = (props) => {
                 setSliderMoved(true);
             }
             let cursorRelative = e.clientX - containerRect.left;
-            console.log(cursorRelative - initialDelta);
-
             if (
                 cursorRelative - initialDelta >= 0 &&
-                cursorRelative - initialDelta <= 117
+                cursorRelative - initialDelta <= 60 
             ) {
                 setPosition(cursorRelative - initialDelta);
             }
@@ -57,7 +55,7 @@ const GranularitySlider = (props) => {
                 onMouseLeave={() => setMouseDown(false)}
                 onMouseMove={(e) => handleMouseMove(e)}
             >
-                <div className="border-solid border-r-cyan-950 border-r-130 border-y-transparent border-y-8 border-l-0 relative"></div>
+                <div className="border-solid border-r-cyan-950 border-r-80 border-y-transparent border-y-8 border-l-0 relative"></div>
                 <div
                     className="absolute w-6 h-6 bg-cyan-500 rounded-full top-[50%] translate-y-[-50%] cursor-pointer"
                     ref={sliderRef}
