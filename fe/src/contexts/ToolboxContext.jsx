@@ -4,7 +4,7 @@ const ToolboxContext = createContext(null);
 
 export const ToolboxProvider = ({ children }) => {
     const [gridOn, setGridOn] = useState(true);
-    const [gridColor, setGridColor] = useState("rgb(255,255,255)");
+    const [gridColor, setGridColor] = useState("rgb(255,0,0)");
     const [frameOn, setFrameOn] = useState(false);
     const [granularity, setGranularity] = useState(1);
 

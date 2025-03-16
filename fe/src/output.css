@@ -289,6 +289,12 @@
   .static {
     position: static;
   }
+  .top-0 {
+    top: calc(var(--spacing) * 0);
+  }
+  .top-2 {
+    top: calc(var(--spacing) * 2);
+  }
   .top-\[50\%\] {
     top: 50%;
   }
