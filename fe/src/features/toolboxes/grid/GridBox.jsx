@@ -1,9 +1,9 @@
-import { useToolbox } from "../../../contexts/ToolboxContext";
+import { useToolbox } from "~/contexts/ToolboxContext";
+import OnOffSwitch from "~/components/OnOffSwitch";
 import GranularitySlider from "./tools/GranularitySlider";
 import FrameCheckBox from "./tools/FrameCheckBox";
 import FreeformCheckBox from "./tools/FreeformCheckBox";
 import ColorSelector from "./tools/ColorSelector";
-import OnOffSwitch from "../../../components/OnOffSwitch";
 import { useState } from "react";
 
 const GridBox = (props) => {

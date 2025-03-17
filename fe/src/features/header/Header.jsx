@@ -1,5 +1,5 @@
-import characterMatrices from '../../constants/fontMatrices';
-import { asciiPrintStd } from '../../functions/asciiPrinting';
+import characterMatrices from '~/constants/fontMatrices';
+import { asciiPrintStd } from '~/functions/asciiPrinting';
 import toUpper from 'lodash/toUpper';
 
 const Header = (props) => {

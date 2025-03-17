@@ -1,5 +1,5 @@
 import Grid from './grid/Grid';
-import { useToolbox } from '../../contexts/ToolboxContext';
+import { useToolbox } from '~/contexts/ToolboxContext';
 
 const ImageDisplay = (props) => {
     const { frameOn } = useToolbox();

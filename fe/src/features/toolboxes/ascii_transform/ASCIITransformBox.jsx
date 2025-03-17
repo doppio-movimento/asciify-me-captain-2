@@ -1,5 +1,5 @@
-import { useToolbox } from "../../../contexts/ToolboxContext";
-import OnOffSwitch from "../../../components/OnOffSwitch";
+import { useToolbox } from "~/contexts/ToolboxContext";
+import OnOffSwitch from "~/components/OnOffSwitch";
 
 const ASCIITransformBox = (props) => {
     const { asciiOn, setAsciiOn } = useToolbox();

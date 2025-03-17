@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useToolbox } from '../../../../contexts/ToolboxContext';
+import { useToolbox } from '~/contexts/ToolboxContext';
 
 const ColorSelector = (props) => {
     const { gridColor, setGridColor } = useToolbox();

@@ -1,4 +1,4 @@
-import { useToolbox } from '../../../../contexts/ToolboxContext';
+import { useToolbox } from '~/contexts/ToolboxContext';
 
 const FrameCheckBox = (props) => {
     const { frameOn, setFrameOn } = useToolbox();

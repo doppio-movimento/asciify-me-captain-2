@@ -1,4 +1,4 @@
-import { useToolbox } from '../../../../contexts/ToolboxContext';
+import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState, useEffect, useRef } from 'react';
 
 const GranularitySlider = (props) => {

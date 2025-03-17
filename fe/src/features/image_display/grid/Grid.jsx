@@ -1,12 +1,13 @@
-import { useToolbox } from '../../../contexts/ToolboxContext';
+import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState, useEffect } from 'react';
 
 const Grid = (props) => {
     const { gridOn, gridColor, granularity, frameOn, asciiOn } = useToolbox();
-    const [fontSize, setFontSize] = useState(5);
+    const [fontSize, setFontSize] = useState(8);
 
     useEffect(() => {
-        //setFontSize(Math.abs(Math.trunc(-0.0399 * granularity + 400)))
+        // TODO: construct a function for setting the font-size
+        // as the granularity changes
     }, [granularity]);
 
     return (
