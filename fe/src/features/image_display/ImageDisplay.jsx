@@ -9,7 +9,7 @@ const ImageDisplay = (props) => {
             className="border relative h-full w-6/9 overflow-hidden flex justify-center place-items-center drop-shadow-md"
             style={{ borderColor: frameOn ? 'white' : 'transparent' }}
         >
-            <img src={'/skull.png'} alt="asciify it" />
+            <img src={'/planet.png'} alt="asciify it" />
             <Grid />
         </div>
     );

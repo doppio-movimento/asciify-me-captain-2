@@ -1,14 +1,15 @@
 import { useToolbox } from "../../../contexts/ToolboxContext";
 import GranularitySlider from "./tools/GranularitySlider";
-import StatusSwitch from "./tools/StatusSwitch";
 import FrameCheckBox from "./tools/FrameCheckBox";
 import FreeformCheckBox from "./tools/FreeformCheckBox";
 import ColorSelector from "./tools/ColorSelector";
+import OnOffSwitch from "../../../components/OnOffSwitch";
 import { useState } from "react";
 
 const GridBox = (props) => {
     const [readyToDrag, setReadyToDrag] = useState(false);
     const [dialPosition, setDialPosition] = useState(0);
+    const { gridOn, setGridOn } = useToolbox();
 
     return (
         <div className="h-2/5 border border-cyan-900 rounded">
@@ -16,7 +17,7 @@ const GridBox = (props) => {
                 <div className="flex pt-3 font-mono text-sm text-white h-1/7">
                     Grid
                 </div>
-                <StatusSwitch />
+                <OnOffSwitch on={gridOn} setOn={setGridOn} />
                 <ColorSelector />
                 <FrameCheckBox />
                 <FreeformCheckBox />

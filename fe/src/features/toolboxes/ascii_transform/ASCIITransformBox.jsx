@@ -1,19 +1,15 @@
+import { useToolbox } from "../../../contexts/ToolboxContext";
+import OnOffSwitch from "../../../components/OnOffSwitch";
+
 const ASCIITransformBox = (props) => {
+    const { asciiOn, setAsciiOn } = useToolbox();
+
     return (
         <div className="h-2/5 border border-cyan-900 flex flex-col place-items-center gap-4 rounded">
             <div className="font-mono text-white w-full flex justify-center pt-2 text-sm">
                 ASCII Transform
             </div>
-            <div className="flex justify-center place-items-center w-full">
-                <div className="w-2/3 h-4 bg-cyan-950 rounded-xl relative">
-                    <div className="absolute text-cyan-400 left-2 top-[50%] translate-y-[-50%] font-mono text-xs">
-                        Turn on
-                    </div>
-                    <div className="h-7 w-7 bg-amber-700 rounded-full absolute top-[50%] translate-y-[-50%] text-xs flex justify-center place-items-center font-mono right-0">
-                        OFF
-                    </div>
-                </div>
-            </div>
+            <OnOffSwitch on={asciiOn} setOn={setAsciiOn} />
 
             <div className="flex flex-col gap-2 w-full justify-center place-items-center">
                 <div className="text-cyan-400 font-mono text-xs">
