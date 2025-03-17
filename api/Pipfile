@@ -12,8 +12,11 @@ numpy = "*"
 pandas = "*"
 psycopg2-binary = "*"
 python-dotenv = "*"
-graphene-django = "*"
 django-cors-headers = "*"
+djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+djangorestframework-camel-case = "*"
+gunicorn = "*"
 
 [dev-packages]
 black = "*"

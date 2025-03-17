@@ -1,14 +1,19 @@
-from pathlib import Path
 import os
+from datetime import timedelta
+from pathlib import Path
+
+import stripe
 from dotenv import load_dotenv
 
-dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+# dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 SECRET_KEY = os.getenv(
     "DJANGO_SECRET_KEY",
     "django-insecure-9&qjfv+l3pbt19l@#v67j#j2sks+1jklg^*e^^8rw9#&&^yd2d",
 )
-DEBUG = os.getenv("DEBUG", "True") == "True"
+DEBUG = os.getenv("DJANGO_DEBUG", "True") == "True"
 CORS_ORIGIN_ALLOW_ALL = bool(os.getenv("CORS_ORIGIN_ALLOW_ALL", "True"))
 USE_X_FORWARDED_HOST = bool(os.getenv("USE_X_FORWARDED_HOST", "False"))
 SECURE_PROXY_SSL_HEADER = tuple(
@@ -19,6 +24,9 @@ ALLOWED_HOSTS = tuple(
 )
 # CSRF_COOKIE_SECURE = bool(os.getenv("CSRF_COOKIE_SECURE", "False"))
 # SESSION_COOKIE_SECURE = bool(os.getenv("SESSION_COOKIE_SECURE", "False"))
+#CORS_ALLOWED_ORIGINS = tuple(os.getenv("CORS_ALLOWED_ORIGINS", "").split(","))
+
+stripe.api_key = os.getenv("STRIPE_API_KEY")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -27,11 +35,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "rest_framework",
+    "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
-    "graphene_django",
+    "ascii_transforms",
+    "funds",
 ]
-
-GRAPHENE = {"SCHEMA": "config.schema.schema"}
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -42,7 +51,31 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "djangorestframework_camel_case.middleware.CamelCaseMiddleWare",
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ],
+    "DEFAULT_RENDERER_CLASSES": (
+        "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
+        "djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer",
+    ),
+    "DEFAULT_PARSER_CLASSES": (
+        "djangorestframework_camel_case.parser.CamelCaseFormParser",
+        "djangorestframework_camel_case.parser.CamelCaseMultiPartParser",
+        "djangorestframework_camel_case.parser.CamelCaseJSONParser",
+    ),
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=20),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=3),
+    "SIGNING_KEY": os.getenv("SIMPLE_JWT_SIGNING_KEY", default=None) or SECRET_KEY,
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+}
 
 ROOT_URLCONF = "config.urls"
 
@@ -67,11 +100,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("PSQL_DB_NAME"),
-        "USER": os.getenv("PSQL_DB_USER"),
-        "PASSWORD": os.getenv("PSQL_DB_PASSWORD"),
-        "HOST": os.getenv("PSQL_DB_HOST"),
-        "PORT": os.getenv("PSQL_DB_PORT"),
+        "NAME": os.getenv("POSTGRES_DB", "asciifydb"),
+        "USER": os.getenv("POSTGRES_USER", "ascii"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "ilikecheese"),
+        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+        "PORT": os.getenv("POSTGRES_PORT", "5432"),
     }
 }
 
