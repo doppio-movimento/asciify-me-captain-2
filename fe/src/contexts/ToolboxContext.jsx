@@ -8,6 +8,7 @@ export const ToolboxProvider = ({ children }) => {
     const [frameOn, setFrameOn] = useState(false);
     const [granularity, setGranularity] = useState(1);
     const [asciiOn, setAsciiOn] = useState(false);
+    const [asciiMatrix, setAsciiMatrix] = useState(null);
 
     return (
         <ToolboxContext.Provider
@@ -22,6 +23,8 @@ export const ToolboxProvider = ({ children }) => {
                 setFrameOn,
                 asciiOn,
                 setAsciiOn,
+                asciiMatrix,
+                setAsciiMatrix,
             }}
         >
             {children}

@@ -3,6 +3,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import ASCIITransform
 from .serializers import ASCIITransformSerializer
+from json import loads
 
 class ASCIITransformList(ListAPIView):
     queryset = ASCIITransform.objects.all()
@@ -10,8 +11,13 @@ class ASCIITransformList(ListAPIView):
 
 @api_view(["POST"])
 def get_ascii_transform(request):
-    matrix = [["a", "b", "%", "&"], ["^", "$", "3", "$"]]
+    dimension = loads(request.body.decode("utf-8"))
+    matrix = [
+            ["a", "b", "%", "&", "x"], 
+            ["^", "$", "3", "$", "6"],
+            ["*", "k", "2", "@", "{"],
+            ["t", "#", "2", "@", "0"],
+            ["*", "k", "b", "$", "7"],
+    ]
     t = ASCIITransform.objects.create(title="test", character_matrix=matrix)
-    for i in range(len(t.character_matrix)):
-        print(t.character_matrix[i])
-    return Response({})
+    return Response(ASCIITransformSerializer(t).data)

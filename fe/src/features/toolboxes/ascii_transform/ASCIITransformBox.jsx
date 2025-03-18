@@ -1,15 +1,17 @@
-import { useToolbox } from "~/contexts/ToolboxContext";
-import OnOffSwitch from "~/components/OnOffSwitch";
-import axios from "axios";
+import { useToolbox } from '~/contexts/ToolboxContext';
+import OnOffSwitch from '~/components/OnOffSwitch';
+import axios from 'axios';
 
 axios.defaults.baseURL = `http://${window.location.hostname}:8000`;
 
 const ASCIITransformBox = (props) => {
-    const { asciiOn, setAsciiOn } = useToolbox();
+    const { granularity, asciiOn, setAsciiOn, asciiMatrix, setAsciiMatrix } = useToolbox();
 
     const handleMatrixRequest = async () => {
-        await axios.post('api/get_ascii_transform');
-    }
+        await axios.post('api/get_ascii_transform', { dimension: granularity }).then((response) => {
+            setAsciiMatrix(response.data.characterMatrix);
+        });
+    };
 
     return (
         <div className="h-2/5 border border-cyan-900 flex flex-col place-items-center gap-4 rounded">
@@ -46,7 +48,10 @@ const ASCIITransformBox = (props) => {
                 </div>
             </div>
 
-            <div className="w-1/3 bg-cyan-500 flex justify-center place-items-center rounded h-10 font-mono" onClick={handleMatrixRequest}>
+            <div
+                className="w-1/3 bg-cyan-500 flex justify-center place-items-center rounded h-10 font-mono"
+                onClick={handleMatrixRequest}
+            >
                 Animate
             </div>
         </div>

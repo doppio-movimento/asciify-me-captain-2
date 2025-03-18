@@ -2,8 +2,8 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState, useEffect } from 'react';
 
 const Grid = (props) => {
-    const { gridOn, gridColor, granularity, frameOn, asciiOn } = useToolbox();
-    const [fontSize, setFontSize] = useState(8);
+    const { gridOn, gridColor, granularity, frameOn, asciiOn, asciiMatrix, setAsciiMatrix } = useToolbox();
+    const [fontSize, setFontSize] = useState(80);
 
     useEffect(() => {
         // TODO: construct a function for setting the font-size
@@ -27,7 +27,7 @@ const Grid = (props) => {
                             color: 'red',
                         }}
                     >
-                        {asciiOn ? '&' : ''}
+                        {asciiOn ? asciiMatrix[Math.trunc(index / asciiMatrix.length)][index % asciiMatrix.length] : ''}
                     </div>
                 ),
             )}
