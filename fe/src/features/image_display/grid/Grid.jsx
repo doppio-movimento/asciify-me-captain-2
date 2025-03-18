@@ -20,11 +20,11 @@ const Grid = (props) => {
             {Array.from(Array(Math.trunc(granularity)).keys()).map(
                 (key, index) => (
                     <div
-                        className="flex justify-center place-items-center opacity-75 border-r border-b font-thin"
+                        className="flex justify-center place-items-center border-r border-b font-thin"
                         style={{
                             fontSize: `${fontSize}px`,
                             borderColor: gridOn ? gridColor : 'transparent',
-                            color: 'white',
+                            color: 'red',
                         }}
                     >
                         {asciiOn ? '&' : ''}

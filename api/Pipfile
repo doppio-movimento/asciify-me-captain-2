@@ -17,6 +17,7 @@ djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 djangorestframework-camel-case = "*"
 gunicorn = "*"
+django-better-admin-arrayfield = "*"
 
 [dev-packages]
 black = "*"
