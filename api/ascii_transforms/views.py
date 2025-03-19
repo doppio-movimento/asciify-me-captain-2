@@ -1,5 +1,9 @@
 from json import loads
 import random
+from urllib.request import urlretrieve
+from openai import OpenAI
+from django.conf import settings
+import shortuuid
 
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListAPIView
@@ -10,11 +14,24 @@ from .serializers import ASCIITransformSerializer
 
 GRAYSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'. "
 
-
 class ASCIITransformList(ListAPIView):
     queryset = ASCIITransform.objects.all()
     serializer_class = ASCIITransformSerializer
 
+@api_view(["POST"])
+def request_ai_image(request):
+    prompt = loads(request.body.decode("utf-8"))["promptText"]
+    client = OpenAI()
+    response = client.images.generate(
+        model="dall-e-3",
+        prompt=prompt,
+        size="1024x1024",
+        n=1,
+    )
+    print(response.data[0].url)
+    image_url = f"./{settings.MEDIA_URL}/image_{shortuuid.uuid()}.png"
+    urlretrieve(response.data[0].url, image_url)
+    return Response({"image_url": image_url})
 
 @api_view(["POST"])
 def get_ascii_transform(request):

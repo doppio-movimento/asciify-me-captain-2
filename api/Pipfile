@@ -18,6 +18,7 @@ djangorestframework-simplejwt = "*"
 djangorestframework-camel-case = "*"
 gunicorn = "*"
 django-better-admin-arrayfield = "*"
+shortuuid = "*"
 
 [dev-packages]
 black = "*"
@@ -25,4 +26,4 @@ isort = "*"
 flake8 = "*"
 
 [requires]
-python_version = "3.11"
+python_version = "3.12"

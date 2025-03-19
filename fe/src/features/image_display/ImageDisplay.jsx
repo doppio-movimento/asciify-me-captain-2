@@ -3,7 +3,7 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState, useEffect, useRef } from 'react';
 
 const ImageDisplay = (props) => {
-    const { frameOn } = useToolbox();
+    const { frameOn, imageUrl } = useToolbox();
     const parentRef = useRef(null);
     const [parentWidth, setParentWidth] = useState(0);
 
@@ -17,7 +17,7 @@ const ImageDisplay = (props) => {
             className="border relative h-full w-6/9 overflow-hidden flex justify-center place-items-center drop-shadow-md"
             style={{ borderColor: frameOn ? 'white' : 'transparent' }}
         >
-            <img src={'/planet.png'} alt="asciify it" />
+            <img src={imageUrl ? `http://localhost:8000/${imageUrl}` : "./planet.png"} alt="asciify it" />
             <Grid />
         </div>
     );
