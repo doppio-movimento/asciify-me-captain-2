@@ -4,6 +4,8 @@ from urllib.request import urlretrieve
 from openai import OpenAI
 from django.conf import settings
 import shortuuid
+from dotenv import load_dotenv
+from os import getenv
 
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListAPIView
@@ -12,6 +14,7 @@ from rest_framework.response import Response
 from .models import ASCIITransform, ASCIITransformCell
 from .serializers import ASCIITransformSerializer
 
+load_dotenv()
 GRAYSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'. "
 
 class ASCIITransformList(ListAPIView):
@@ -21,7 +24,7 @@ class ASCIITransformList(ListAPIView):
 @api_view(["POST"])
 def request_ai_image(request):
     prompt = loads(request.body.decode("utf-8"))["promptText"]
-    client = OpenAI()
+    client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
     response = client.images.generate(
         model="dall-e-3",
         prompt=prompt,
