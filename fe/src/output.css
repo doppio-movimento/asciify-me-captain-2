@@ -1222,6 +1222,46 @@
   .text-\[12px\] {
     font-size: 12px;
   }
+  .leading-\[-2\] {
+    --tw-leading: -2;
+    line-height: -2;
+  }
+  .leading-\[0\.01\] {
+    --tw-leading: 0.01;
+    line-height: 0.01;
+  }
+  .leading-\[0\.5\] {
+    --tw-leading: 0.5;
+    line-height: 0.5;
+  }
+  .leading-\[0\.6\] {
+    --tw-leading: 0.6;
+    line-height: 0.6;
+  }
+  .leading-\[0\.8\] {
+    --tw-leading: 0.8;
+    line-height: 0.8;
+  }
+  .leading-\[0\] {
+    --tw-leading: 0;
+    line-height: 0;
+  }
+  .leading-\[1\] {
+    --tw-leading: 1;
+    line-height: 1;
+  }
+  .leading-\[2\] {
+    --tw-leading: 2;
+    line-height: 2;
+  }
+  .leading-\[5\] {
+    --tw-leading: 5;
+    line-height: 5;
+  }
+  .leading-none {
+    --tw-leading: 1;
+    line-height: 1;
+  }
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
@@ -1230,8 +1270,14 @@
     --tw-font-weight: var(--font-weight-thin);
     font-weight: var(--font-weight-thin);
   }
+  .break-words {
+    overflow-wrap: break-word;
+  }
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+  .whitespace-pre-line {
+    white-space: pre-line;
   }
   .whitespace-pre-wrap {
     white-space: pre-wrap;
@@ -1531,6 +1577,10 @@
   syntax: "*";
   inherits: false;
   initial-value: solid;
+}
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
 }
 @property --tw-font-weight {
   syntax: "*";

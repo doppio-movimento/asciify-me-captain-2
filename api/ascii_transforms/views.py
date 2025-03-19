@@ -32,4 +32,5 @@ def get_ascii_transform(request):
                 green=random.randint(0, 255),
                 blue=random.randint(0, 255),
             )
+    print(t)
     return Response(ASCIITransformSerializer(t).data)
