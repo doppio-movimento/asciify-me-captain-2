@@ -1,6 +1,9 @@
 from django.contrib import admin
 
-from .models import ASCIITransform, ASCIIMatrixCell
+from .models import ASCIITransform, ASCIITransformCell
 
-admin.site.register(ASCIITransform)
-admin.site.register(ASCIIMatrixCell)
+@admin.register(ASCIITransform)
+class ASCIITransformAdmin(admin.ModelAdmin):
+    readonly_fields = ('dimension',)
+
+admin.site.register(ASCIITransformCell)

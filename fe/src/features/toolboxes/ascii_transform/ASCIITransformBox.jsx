@@ -8,8 +8,9 @@ const ASCIITransformBox = (props) => {
     const { granularity, asciiOn, setAsciiOn, asciiMatrix, setAsciiMatrix } = useToolbox();
 
     const handleMatrixRequest = async () => {
-        await axios.post('api/get_ascii_transform', { dimension: granularity }).then((response) => {
-            setAsciiMatrix(response.data.characterMatrix);
+        await axios.post('api/get_ascii_transform', { dimension: Math.trunc(Math.sqrt(granularity)) }).then((response) => {
+            setAsciiMatrix(response.data.cells);
+            console.log(response.data.cells);
         });
     };
 
