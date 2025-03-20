@@ -1,11 +1,11 @@
 import axios from 'axios';
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import { useToolbox } from "~/contexts/ToolboxContext";
 
 axios.defaults.baseURL = `http://${window.location.hostname}:8000`;
 
 const PromptBox = (props) => {
-    const { setImageUrl } = useToolbox();
+    const { setImageUrl, setImageLoading } = useToolbox();
     var promptText = '';
     const textAreaRef = useRef(null);
 
@@ -13,11 +13,13 @@ const PromptBox = (props) => {
         promptText = textAreaRef.current.value;
     };
 
-    const handleButtonClick = async () => {
+    const handleImageRequest = async () => {
+        setImageLoading(true);
         await axios
             .post('api/request_ai_image', { promptText: promptText })
             .then((response) => {
                 setImageUrl(response.data.imageUrl);
+                setImageLoading(false);
             });
     };
 
@@ -31,7 +33,7 @@ const PromptBox = (props) => {
             ></textarea>
             <div
                 className="flex place-items-center justify-center w-full h-3/9 bg-cyan-700 font-mono rounded hover:bg-cyan-600"
-                onClick={handleButtonClick}
+                onClick={handleImageRequest}
             >
                 ASCIIFY
             </div>

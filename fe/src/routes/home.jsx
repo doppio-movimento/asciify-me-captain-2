@@ -15,7 +15,7 @@ const Home = (props) => {
                     <ModeBox />
                     <DownloadBox />
                 </div>
-                <div className="flex flex-col place-items-center gap-5">
+                <div className="flex flex-col place-items-center gap-5 w-full h-full">
                     <ImageDisplay />
                     <PromptBox />
                 </div>
