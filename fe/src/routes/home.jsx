@@ -10,16 +10,16 @@ import { ToolboxProvider } from '~/contexts/ToolboxContext';
 const Home = (props) => {
     return (
         <ToolboxProvider>
-            <div className="flex w-full h-full place-items-center gap-2">
-                <div className="flex flex-col h-full w-1/9 gap-2 p-2">
+            <div className="flex w-full h-full place-items-center">
+        {/*<div className="flex flex-col h-full w-1/9 gap-2 p-2">
                     <ModeBox />
                     <DownloadBox />
-                </div>
-                <div className="flex flex-col place-items-center gap-5 w-full h-full">
+                </div>*/}
+                <div className="flex flex-col place-items-center gap-1 w-full h-full">
                     <ImageDisplay />
                     <PromptBox />
                 </div>
-                <div className="h-full w-2/9 flex flex-col gap-2 p-2">
+                <div className="h-full w-1/9 flex flex-col gap-2">
                     <GridBox />
                     <GrayscaleBox />
                     <ASCIITransformBox />

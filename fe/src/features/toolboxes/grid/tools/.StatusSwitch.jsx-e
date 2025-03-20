@@ -14,7 +14,7 @@ const StatusSwitch = (props) => {
                     className="absolute top-[50%] translate-y-[-50%] z-10 w-7 h-7 rounded-full text-xs flex justify-center place-items-center"
                     style={{
                         left: gridOn ? 0 : '85%',
-                        backgroundColor: gridOn ? 'amber' : 'red',
+                        backgroundColor: gridOn ? 'cyan' : 'red',
                     }}
                 >
                     {gridOn ? 'ON' : 'OFF'}

@@ -10,10 +10,10 @@ const Header = (props) => {
     const r = 255;
     const g = 20;
     const b = 255;
-    const symbol = '@';
+    const symbol = '.';
 
     return (
-        <div className="flex relative mb-2 rounded p-2 h-1/9 gap-6">
+        <div className="flex relative rounded p-2 h-1/9 gap-8">
             {titleWords.map((word, i) => (
                 <div
                     className="relative"

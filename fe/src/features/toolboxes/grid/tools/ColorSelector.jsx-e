@@ -26,7 +26,7 @@ const ColorSelector = (props) => {
 
     return (
         <div className="flex justify-between w-2/3 h-1/7">
-            <div className="text-amber-400 font-mono text-xs">Color</div>
+            <div className="text-cyan-400 font-mono text-xs">Color</div>
             <div
                 className="w-5 h-5 cursor-pointer"
                 style={{ backgroundColor: colorOptions[index] }}
