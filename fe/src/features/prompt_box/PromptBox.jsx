@@ -5,7 +5,7 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 axios.defaults.baseURL = `http://${window.location.hostname}:8000`;
 
 const PromptBox = (props) => {
-    const { setImageUrl, setImageLoading } = useToolbox();
+    const { setImageUrl, setImageLoading, setAsciiMatrix } = useToolbox();
     var promptText = '';
     const textAreaRef = useRef(null);
 
@@ -20,6 +20,7 @@ const PromptBox = (props) => {
             .then((response) => {
                 setImageUrl(response.data.imageUrl);
                 setImageLoading(false);
+                setAsciiMatrix(response.data.matrix);
             });
     };
 

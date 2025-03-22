@@ -34,14 +34,11 @@ def request_ai_image(request):
         size="1024x1024",
         n=1,
     )
-    print(response.data[0].url)
     image_url = f"./{settings.MEDIA_URL}/image_{shortuuid.uuid()}.png"
     urlretrieve(response.data[0].url, image_url)
     a = Asciifier()
-    t = Traverser()
     ascii_transform = a.asciify(image_url)
-    print(ascii_transform)
-    return Response({"image_url": image_url})
+    return Response({"image_url": image_url, "matrix": ascii_transform})
 
 @api_view(["POST"])
 def get_ascii_transform(request):

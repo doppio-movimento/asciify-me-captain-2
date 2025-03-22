@@ -31,7 +31,7 @@ DISCRETE_COLORS = [
     {"name": colors.BRIGHT_WHITE, "code": [255, 255, 255]},
 ]
 
-GSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'. "
+GSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'.."
 
 
 class Asciifier:
@@ -81,11 +81,8 @@ class Asciifier:
                         / 255
                     )
                 ]
-                ascii_matrix[r].append(
-                    self.__average_color(rgb_tile) + gscale_char
-                    if gscale_char != " "
-                    else colors.BLACK_BG + " "
-                )
+                ascii_matrix[r].append(gscale_char)
+        print(ascii_matrix)
         return ascii_matrix
 
     def __discretized_color(self, rgb):

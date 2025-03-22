@@ -4,7 +4,7 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState, useEffect, useRef } from 'react';
 
 const ImageDisplay = (props) => {
-    const { frameOn, imageUrl, imageLoading } = useToolbox();
+    const { asciiMatrix, frameOn, imageUrl, imageLoading } = useToolbox();
     const parentRef = useRef(null);
     const [parentWidth, setParentWidth] = useState(0);
     const [imageWidth, setImageWidth] = useState('40%');
@@ -26,18 +26,20 @@ const ImageDisplay = (props) => {
                 {imageLoading ? (
                     <LoadingSpinner />
                 ) : (
-                    <>
-                    <img
-                        className="w-full h-full rounded-lg"
-                        src={
-                            imageUrl
-                                ? `http://localhost:8000/${imageUrl}`
-                                : './skull.png'
-                        }
-                        alt="stuff"
-                    />
-                    <div className="absolute w-full h-full bg-gray opacity-100"></div>
-                    </>
+                    <div className="relative w-full h-full rounded overflow-hidden">
+                        <img
+                            className="absolute w-full h-full rounded-lg"
+                            src={
+                                imageUrl
+                                    ? `http://localhost:8000/${imageUrl}`
+                                    : './skull.png'
+                            }
+                            alt="stuff"
+                        />
+                        <div className="absolute w-full h-full bg-amber-500 opacity-75 z-10 break-words">
+                            {asciiMatrix}
+                        </div>
+                    </div>
                 )}
             </div>
             {/*<div
