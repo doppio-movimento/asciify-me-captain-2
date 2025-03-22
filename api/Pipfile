@@ -19,6 +19,7 @@ djangorestframework-camel-case = "*"
 gunicorn = "*"
 django-better-admin-arrayfield = "*"
 shortuuid = "*"
+colorama = "*"
 
 [dev-packages]
 black = "*"

@@ -7,6 +7,9 @@ import shortuuid
 from dotenv import load_dotenv
 from os import getenv
 
+from lib.ascii import Asciifier
+from lib.text_animation import Traverser
+
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
@@ -34,6 +37,10 @@ def request_ai_image(request):
     print(response.data[0].url)
     image_url = f"./{settings.MEDIA_URL}/image_{shortuuid.uuid()}.png"
     urlretrieve(response.data[0].url, image_url)
+    a = Asciifier()
+    t = Traverser()
+    ascii_transform = a.asciify(image_url)
+    print(ascii_transform)
     return Response({"image_url": image_url})
 
 @api_view(["POST"])
