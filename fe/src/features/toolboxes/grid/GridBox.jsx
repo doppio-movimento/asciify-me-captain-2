@@ -14,7 +14,7 @@ const GridBox = (props) => {
     return (
         <div className="h-2/5 w-full border border-amber-900 rounded">
             <div className="flex flex-col h-full place-items-center gap-5">
-                <div className="flex pt-3 font-mono text-sm text-white h-1/7">
+                <div className="flex pt-3 font-mono text-xs text-white h-1/7">
                     Grid
                 </div>
                 <OnOffSwitch on={gridOn} setOn={setGridOn} />

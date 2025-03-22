@@ -29,7 +29,7 @@ const PromptBox = (props) => {
                 ref={textAreaRef}
                 onChange={handleTyping}
                 className="w-2/4 h-6/9 outline-none border border-amber-900 resize-none text-amber-500 font-mono text-xs py-1 px-2 rounded animate-pulse"
-                placeholder="What shall we create?"
+                placeholder="What can I show you?"
             ></textarea>
             <div
                 className="cursor-pointer flex place-items-center justify-center w-25 h-6/9 bg-linear-to-br from-neutral-800 to-black rounded-lg hover:bg-neutral-900 text-neutral-200 hover:text-green-500"

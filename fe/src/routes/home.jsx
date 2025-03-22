@@ -19,7 +19,7 @@ const Home = (props) => {
                     <ImageDisplay />
                     <PromptBox />
                 </div>
-                <div className="h-full w-1/9 flex flex-col gap-2">
+                <div className="h-full w-1/9 flex flex-col gap-2 border border-white">
                     <GridBox />
                     <GrayscaleBox />
                     <ASCIITransformBox />
