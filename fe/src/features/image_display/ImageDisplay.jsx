@@ -10,10 +10,6 @@ const ImageDisplay = (props) => {
     const [imageWidth, setImageWidth] = useState('40%');
     const [imageHeight, setImageHeight] = useState('100%');
 
-    useEffect(() => {
-        console.log(parentRef.current.offsetWidth);
-    }, []);
-
     return (
         <div
             className="relative flex flex-row-reverse w-full h-full bg-neutral-950 p-2 overflow-hidden rounded-lg"
@@ -36,8 +32,21 @@ const ImageDisplay = (props) => {
                             }
                             alt="stuff"
                         />
-                        <div className="absolute w-full h-full bg-amber-500 opacity-75 z-10 break-words">
-                            {asciiMatrix}
+                        <div className="absolute w-full h-full z-10 break-words text-[10px]">
+                            {asciiMatrix.map((row, index) => (
+                                <>
+                                    {row.map((elem, k) => (
+                                        <span
+                                            style={{
+                                                color: `rgb(${elem.color[0]}, ${elem.color[1]}, ${elem.color[2]})`,
+                                            }}
+                                        >
+                                            {elem.character}
+                                        </span>
+                                    ))}
+                                </>
+                            ))}
+                            ))}
                         </div>
                     </div>
                 )}

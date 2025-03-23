@@ -35,7 +35,7 @@ GSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'
 
 
 class Asciifier:
-    def __init__(self, columns=100, rows=100, grayscale=GSCALE):
+    def __init__(self, columns=500, rows=500, grayscale=GSCALE):
         self.grayscale = grayscale
         self.n_columns = columns 
         self.n_rows = rows 
@@ -81,8 +81,7 @@ class Asciifier:
                         / 255
                     )
                 ]
-                ascii_matrix[r].append(gscale_char)
-        print(ascii_matrix)
+                ascii_matrix[r].append({"character": gscale_char, "color": self.__average_color(rgb_tile)})
         return ascii_matrix
 
     def __discretized_color(self, rgb):
@@ -105,4 +104,5 @@ class Asciifier:
         tile_array = np.array(rgb_tile)
         n_columns, n_rows, _ = tile_array.shape
         average_rgb = np.average(tile_array.reshape((n_columns * n_rows, 3)), axis=0)
-        return self.__discretized_color(average_rgb)
+        return average_rgb
+        #return self.__discretized_color(average_rgb)

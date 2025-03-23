@@ -21,6 +21,7 @@ const PromptBox = (props) => {
                 setImageUrl(response.data.imageUrl);
                 setImageLoading(false);
                 setAsciiMatrix(response.data.matrix);
+                console.log(response.data.matrix);
             });
     };
 

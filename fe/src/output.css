@@ -1307,8 +1307,14 @@
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
   }
+  .text-\[5px\] {
+    font-size: 5px;
+  }
   .text-\[6px\] {
     font-size: 6px;
+  }
+  .text-\[10px\] {
+    font-size: 10px;
   }
   .leading-\[0\.5\] {
     --tw-leading: 0.5;
