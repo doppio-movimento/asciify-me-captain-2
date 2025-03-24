@@ -5,7 +5,7 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 axios.defaults.baseURL = `http://${window.location.hostname}:8000`;
 
 const PromptBox = (props) => {
-    const { setImageUrl, setImageLoading, setAsciiMatrix, gridRows, gridCols } = useToolbox();
+    const { setImageUrl, setImageLoading, setAsciiMatrix, charsPerRow, charsPerColumn } = useToolbox();
     var promptText = '';
     const textAreaRef = useRef(null);
 
@@ -15,8 +15,9 @@ const PromptBox = (props) => {
 
     const handleImageRequest = async () => {
         setImageLoading(true);
+        console.log(charsPerRow);
         await axios
-            .post('api/request_ai_image', { promptText: promptText, rows: gridRows, columns: gridCols })
+            .post('api/request_ai_image', { promptText: promptText, rows: charsPerColumn, columns: charsPerRow })
             .then((response) => {
                 setImageUrl(response.data.imageUrl);
                 setImageLoading(false);

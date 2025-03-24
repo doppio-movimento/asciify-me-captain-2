@@ -10,7 +10,7 @@ const Grid = (props) => {
     return (
         <>
             {asciiMatrix && (
-                <div className="absolute z-10 break-words text-[5px] font-mono bg-red-900" style={{ width: "325ch", height: "20ch" }}>
+                <div className="absolute z-10 break-words text-[10px] font-mono" style={{ width: "325ch", height: "20ch" }}>
                     {asciiMatrix.map((row, index) => (
                         <p>
                             {row.map((elem, k) => (

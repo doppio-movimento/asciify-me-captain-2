@@ -1,30 +1,19 @@
 import Grid from './grid/Grid';
 import LoadingSpinner from '~/components/LoadingSpinner';
 import { useToolbox } from '~/contexts/ToolboxContext';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 
 const ImageDisplay = (props) => {
-    const { frameOn, imageUrl, imageLoading, setGridRows, setGridCols } = useToolbox();
-    const parentRef = useRef(null);
-    const imagePaneRef = useRef(null);
-    const [parentWidth, setParentWidth] = useState(0);
-    const [imageWidth, setImageWidth] = useState('40%');
+    const { frameOn, imageUrl, imageLoading, setCharsPerColumn, setCharsPerRow } = useToolbox();
     const [imageHeight, setImageHeight] = useState('100%');
-
-    useEffect(() => {
-        console.log(imagePaneRef.current.offsetWidth);
-        setGridRows(100); 
-    }, []);
 
     return (
         <div
             className="relative flex flex-row-reverse w-full h-full bg-neutral-950 p-2 overflow-hidden rounded-lg"
-            ref={parentRef}
         >
             <div
-                className="relative bg-neutral-900 shadow-xl rounded-lg overflow-hidden p-2 flex justify-center place-items-center text-[5px] font-mono"
+                className="relative bg-black shadow-xl rounded-lg overflow-hidden p-2 flex justify-center place-items-center text-[10px] font-mono"
                 style={{ width: "325ch", height: imageHeight }}
-                ref={imagePaneRef}
             >
                 {imageLoading ? (
                     <LoadingSpinner />
