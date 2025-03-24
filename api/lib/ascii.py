@@ -35,7 +35,7 @@ GSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'
 
 
 class Asciifier:
-    def __init__(self, columns=500, rows=500, grayscale=GSCALE):
+    def __init__(self, columns=225, rows=100, grayscale=GSCALE):
         self.grayscale = grayscale
         self.n_columns = columns 
         self.n_rows = rows 
@@ -84,17 +84,6 @@ class Asciifier:
                 ascii_matrix[r].append({"character": gscale_char, "color": self.__average_color(rgb_tile)})
         return ascii_matrix
 
-    def __discretized_color(self, rgb):
-        color_index = 0
-        last_distance = 255 * 3
-        for index, color in enumerate(DISCRETE_COLORS):
-            d = manhattan_distance(color["code"], rgb)
-            if d < last_distance:
-                color_index = index
-                last_distance = d
-
-        return DISCRETE_COLORS[color_index]["name"]
-
     def __average_luminance(self, gs_tile):
         tile_array = np.array(gs_tile)
         n_columns, n_rows = tile_array.shape
@@ -105,4 +94,3 @@ class Asciifier:
         n_columns, n_rows, _ = tile_array.shape
         average_rgb = np.average(tile_array.reshape((n_columns * n_rows, 3)), axis=0)
         return average_rgb
-        #return self.__discretized_color(average_rgb)

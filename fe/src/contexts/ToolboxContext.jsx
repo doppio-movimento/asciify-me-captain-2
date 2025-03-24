@@ -11,6 +11,8 @@ export const ToolboxProvider = ({ children }) => {
     const [asciiMatrix, setAsciiMatrix] = useState(null);
     const [imageUrl, setImageUrl] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
+    const [gridRows, setGridRows] = useState(100);
+    const [gridCols, setGridCols] = useState(225);
 
     return (
         <ToolboxContext.Provider
@@ -31,6 +33,10 @@ export const ToolboxProvider = ({ children }) => {
                 setImageUrl,
                 imageLoading,
                 setImageLoading,
+                gridRows,
+                setGridRows,
+                gridCols,
+                setGridCols,
             }}
         >
             {children}

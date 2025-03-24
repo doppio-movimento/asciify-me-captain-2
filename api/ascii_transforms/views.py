@@ -27,6 +27,8 @@ class ASCIITransformList(ListAPIView):
 @api_view(["POST"])
 def request_ai_image(request):
     prompt = loads(request.body.decode("utf-8"))["promptText"]
+    rows = loads(request.body.decode("utf-8"))["rows"]
+    columns = loads(request.body.decode("utf-8"))["columns"]
     client = OpenAI(api_key=getenv("OPENAI_API_KEY"))
     response = client.images.generate(
         model="dall-e-3",
@@ -36,7 +38,7 @@ def request_ai_image(request):
     )
     image_url = f"./{settings.MEDIA_URL}/image_{shortuuid.uuid()}.png"
     urlretrieve(response.data[0].url, image_url)
-    a = Asciifier()
+    a = Asciifier(rows=rows, columns=columns)
     ascii_transform = a.asciify(image_url)
     return Response({"image_url": image_url, "matrix": ascii_transform})
 

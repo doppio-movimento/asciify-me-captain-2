@@ -4,11 +4,17 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState, useEffect, useRef } from 'react';
 
 const ImageDisplay = (props) => {
-    const { asciiMatrix, frameOn, imageUrl, imageLoading } = useToolbox();
+    const { frameOn, imageUrl, imageLoading, setGridRows, setGridCols } = useToolbox();
     const parentRef = useRef(null);
+    const imagePaneRef = useRef(null);
     const [parentWidth, setParentWidth] = useState(0);
     const [imageWidth, setImageWidth] = useState('40%');
     const [imageHeight, setImageHeight] = useState('100%');
+
+    useEffect(() => {
+        console.log(imagePaneRef.current.offsetWidth);
+        setGridRows(100); 
+    }, []);
 
     return (
         <div
@@ -16,15 +22,16 @@ const ImageDisplay = (props) => {
             ref={parentRef}
         >
             <div
-                className="relative bg-neutral-900 shadow-xl rounded-lg overflow-hidden p-2 flex justify-center place-items-center"
-                style={{ width: imageWidth, height: imageHeight }}
+                className="relative bg-neutral-900 shadow-xl rounded-lg overflow-hidden p-2 flex justify-center place-items-center text-[5px] font-mono"
+                style={{ width: "325ch", height: imageHeight }}
+                ref={imagePaneRef}
             >
                 {imageLoading ? (
                     <LoadingSpinner />
                 ) : (
                     <div className="relative w-full h-full rounded overflow-hidden">
                         <img
-                            className="absolute w-full h-full rounded-lg"
+                            className="absolute w-full h-full rounded-lg opacity-0"
                             src={
                                 imageUrl
                                     ? `http://localhost:8000/${imageUrl}`
@@ -32,44 +39,10 @@ const ImageDisplay = (props) => {
                             }
                             alt="stuff"
                         />
-                        <div className="absolute w-full h-full z-10 break-words text-[10px]">
-                            {asciiMatrix.map((row, index) => (
-                                <>
-                                    {row.map((elem, k) => (
-                                        <span
-                                            style={{
-                                                color: `rgb(${elem.color[0]}, ${elem.color[1]}, ${elem.color[2]})`,
-                                            }}
-                                        >
-                                            {elem.character}
-                                        </span>
-                                    ))}
-                                </>
-                            ))}
-                            ))}
-                        </div>
+                        <Grid />
                     </div>
                 )}
             </div>
-            {/*<div
-                ref={parentRef}
-                className="border relative overflow-hidden flex justify-center place-items-center drop-shadow-md bg-neutral-950"
-                style={{ borderColor: frameOn ? 'white' : 'transparent' }}
-            >
-                {imageLoading ? (
-                    <LoadingSpinner />
-                ) : (
-                    <img
-                        src={
-                            imageUrl
-                                ? `http://localhost:8000/${imageUrl}`
-                                : './planet.png'
-                        }
-                        alt="asciify it"
-                    />
-                )}
-                {<Grid />}
-            </div>*/}
         </div>
     );
 };
