@@ -17,7 +17,11 @@ const Home = (props) => {
                 </div>*/}
                 <div className="flex flex-col w-full h-full">
                     <ImageDisplay />
-                    <PromptBox />
+                    <div className="flex w-full">
+                        <PromptBox />
+                        <GridBox />
+                    </div>
+
                 </div>
         {/*<div className="h-full w-1/9 flex flex-col gap-2">
                     <GridBox />

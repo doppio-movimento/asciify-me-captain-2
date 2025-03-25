@@ -4,7 +4,7 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState } from 'react';
 
 const ImageDisplay = (props) => {
-    const { frameOn, imageUrl, imageLoading, setCharsPerColumn, setCharsPerRow } = useToolbox();
+    const { frameOn, imageUrl, imageLoading, charsPerColumn, charsPerRow } = useToolbox();
     const [imageHeight, setImageHeight] = useState('100%');
 
     return (
@@ -13,7 +13,7 @@ const ImageDisplay = (props) => {
         >
             <div
                 className="relative bg-black shadow-xl rounded-lg overflow-hidden p-2 flex justify-center place-items-center text-[10px] font-mono"
-                style={{ width: "325ch", height: imageHeight }}
+                style={{ width: `${charsPerRow}ch`, height: imageHeight }}
             >
                 {imageLoading ? (
                     <LoadingSpinner />

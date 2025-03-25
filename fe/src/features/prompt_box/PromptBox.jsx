@@ -15,23 +15,21 @@ const PromptBox = (props) => {
 
     const handleImageRequest = async () => {
         setImageLoading(true);
-        console.log(charsPerRow);
         await axios
             .post('api/request_ai_image', { promptText: promptText, rows: charsPerColumn, columns: charsPerRow })
             .then((response) => {
                 setImageUrl(response.data.imageUrl);
                 setImageLoading(false);
                 setAsciiMatrix(response.data.matrix);
-                console.log(response.data.matrix);
             });
     };
 
     return (
-        <div className="w-full h-30 flex gap-2 place-items-center justify-left">
+        <div className="w-2/3 h-30 flex gap-2 place-items-center justify-left">
             <textarea
                 ref={textAreaRef}
                 onChange={handleTyping}
-                className="w-2/4 h-6/9 outline-none border border-amber-900 resize-none text-amber-500 font-mono text-xs py-1 px-2 rounded animate-pulse"
+                className="w-3/4 h-6/9 outline-none border border-fuchsia-900 resize-none text-fuchsia-500 font-mono text-xs py-1 px-2 rounded animate-pulse"
                 placeholder="What can I show you?"
             ></textarea>
             <div
