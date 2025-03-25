@@ -1319,6 +1319,12 @@
   .text-\[10px\] {
     font-size: 10px;
   }
+  .text-\[15px\] {
+    font-size: 15px;
+  }
+  .text-\[20px\] {
+    font-size: 20px;
+  }
   .leading-\[0\.6\] {
     --tw-leading: 0.6;
     line-height: 0.6;
