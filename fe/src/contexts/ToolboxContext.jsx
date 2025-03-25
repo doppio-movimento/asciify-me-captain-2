@@ -13,6 +13,7 @@ export const ToolboxProvider = ({ children }) => {
     const [imageLoading, setImageLoading] = useState(false);
     const [charsPerColumn, setCharsPerColumn] = useState(44);
     const [charsPerRow, setCharsPerRow] = useState(325);
+    const [filter, setFilter] = useState(/[A-Z]/);
 
     return (
         <ToolboxContext.Provider
@@ -37,6 +38,8 @@ export const ToolboxProvider = ({ children }) => {
                 setCharsPerColumn,
                 charsPerRow,
                 setCharsPerRow,
+                filter,
+                setFilter,
             }}
         >
             {children}

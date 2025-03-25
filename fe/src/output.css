@@ -1413,6 +1413,12 @@
   .text-fuchsia-700 {
     color: var(--color-fuchsia-700);
   }
+  .text-gray-900 {
+    color: var(--color-gray-900);
+  }
+  .text-gray-950 {
+    color: var(--color-gray-950);
+  }
   .text-green-300 {
     color: var(--color-green-300);
   }
@@ -1442,6 +1448,9 @@
   }
   .text-neutral-500 {
     color: var(--color-neutral-500);
+  }
+  .text-neutral-900 {
+    color: var(--color-neutral-900);
   }
   .text-orange-300 {
     color: var(--color-orange-300);

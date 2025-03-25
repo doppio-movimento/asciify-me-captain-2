@@ -19,6 +19,7 @@ const Character = (props) => {
                 color: getCharColor(props.element),
                 opacity: isVisible ? 1 : 0,
             }}
+            onMouseEnter={() => setIsVisible(false)}
         >
             {props.element.character}
         </span>
