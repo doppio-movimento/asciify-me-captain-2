@@ -33,7 +33,6 @@ DISCRETE_COLORS = [
 
 GSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'.."
 
-
 class Asciifier:
     def __init__(self, columns=225, rows=100, grayscale=GSCALE):
         self.grayscale = grayscale

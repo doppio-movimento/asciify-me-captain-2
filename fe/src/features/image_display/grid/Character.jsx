@@ -1,7 +1,19 @@
 import { useState, useEffect } from 'react';
+import max from 'lodash/max';
+import indexOf from 'lodash/indexOf';
 
 const Character = (props) => {
     const [isVisible, setIsVisible] = useState(true);
+    const [color, setColor] = useState("black");
+
+    useEffect(() => {
+        setColor(getCharColor(props.element));
+        // naive saturation
+        let maxIndex = indexOf(props.element.color, max(props.element.color));
+        let rgb = props.element.color;
+        rgb[maxIndex] = 255;
+        //setColor(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
+    }, []);
 
     useEffect(() => {
         setIsVisible(!props.filter.test(props.element.character));
@@ -16,8 +28,8 @@ const Character = (props) => {
             className="cursor-pointer"
             onClick={() => setIsVisible(!isVisible)}
             style={{
-                color: getCharColor(props.element),
-                opacity: isVisible ? 1 : 0,
+                color: color,
+                opacity: isVisible ? 1 : 0.03,
             }}
             onMouseEnter={() => setIsVisible(false)}
         >
