@@ -4,7 +4,7 @@ import { useToolbox } from '~/contexts/ToolboxContext';
 import { useState } from 'react';
 
 const ImageDisplay = (props) => {
-    const { frameOn, imageUrl, imageLoading, charsPerColumn, charsPerRow } = useToolbox();
+    const { frameOn, imageUrl, imageLoading, charsPerColumn, charsPerRow, charSize } = useToolbox();
     const [imageHeight, setImageHeight] = useState('100%');
 
     return (
@@ -12,8 +12,8 @@ const ImageDisplay = (props) => {
             className="relative flex flex-row-reverse w-full h-full bg-neutral-950 p-2 overflow-hidden rounded-lg"
         >
             <div
-                className="relative bg-black shadow-xl rounded-lg overflow-hidden p-2 flex justify-center place-items-center text-[20px] font-mono"
-                style={{ width: `${charsPerRow}ch`, height: imageHeight }}
+                className="relative bg-black shadow-xl rounded-lg overflow-hidden p-2 flex justify-center place-items-center font-mono"
+                style={{ width: `${charsPerRow}ch`, height: imageHeight, fontSize: `${charSize}px` }}
             >
                 {imageLoading ? (
                     <LoadingSpinner />

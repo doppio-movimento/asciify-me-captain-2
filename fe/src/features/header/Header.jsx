@@ -7,10 +7,7 @@ const Header = (props) => {
     const titleWords = toUpper(props.title).split(' ');
     const colors = props.colors;
     const numbers = [1, 1.5, 2, 2.5, 1000];
-    const r = 255;
-    const g = 20;
-    const b = 255;
-    const symbol = '.';
+    const symbol = '@';
 
     return (
         <div className="flex relative rounded p-2 h-1/9 gap-8">

@@ -11,9 +11,9 @@ const Root = (props) => {
             <Header
                 title={'asciify me captain'}
                 colors={[
-                    [70, 255, 20],
-                    [70, 255, 20],
-                    [70, 255, 20],
+                    [255, 0, 255],
+                    [255, 0, 255],
+                    [255, 0, 255],
                 ]}
             />
             <div className="flex bg-black p-5 gap-2 h-8/9">
