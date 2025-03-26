@@ -1,10 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { gsap } from "gsap";
 import max from 'lodash/max';
 import indexOf from 'lodash/indexOf';
 
 const Character = (props) => {
     const [isVisible, setIsVisible] = useState(true);
     const [color, setColor] = useState("black");
+    const isFirstRender = useRef(true);
+    const characterRef = useRef(null);
 
     useEffect(() => {
         setColor(getCharColor(props.element));
@@ -15,8 +18,15 @@ const Character = (props) => {
         //setColor(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
     }, []);
 
-    useEffect(() => {
-        setIsVisible(!props.filter.test(props.element.character));
+    useLayoutEffect(() => {
+        if (!props.filter.test(props.element.character) && !isVisible) {
+            gsap.to(characterRef.current, {opacity: 1, duration: 2});
+            setIsVisible(true);
+        }
+        if (props.filter.test(props.element.character) && isVisible) {
+            gsap.to(characterRef.current, {opacity: 0.1, duration: 2});
+            setIsVisible(false);
+        }
     }, [props.filter]);
 
     const getCharColor = (elem) => {
@@ -25,11 +35,11 @@ const Character = (props) => {
 
     return (
         <span
-            className="cursor-pointer"
+            ref={characterRef}
+            className="ascii-character cursor-pointer"
             onClick={() => setIsVisible(!isVisible)}
             style={{
                 color: color,
-                opacity: isVisible ? 1 : 0.03,
             }}
             onMouseEnter={() => setIsVisible(false)}
         >

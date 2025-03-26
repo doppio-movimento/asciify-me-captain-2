@@ -7,7 +7,7 @@ const Root = (props) => {
     var location = useLocation();
 
     return (
-        <div className="flex flex-col h-screen min-h-screen bg-black p-5">
+        <div className="flex flex-col h-screen min-h-screen bg-neutral-950 p-5">
             <Header
                 title={'asciify me captain'}
                 colors={[

@@ -1,5 +1,6 @@
+import { gsap } from 'gsap';
 import { useToolbox } from '~/contexts/ToolboxContext';
-import { useState } from "react";
+import { useState, useLayoutEffect } from "react";
 import Character from '~/features/image_display/grid/Character';
 
 const Grid = (props) => {
@@ -7,6 +8,10 @@ const Grid = (props) => {
     const getCharColor = (elem) => {
         return `rgb(${elem.color[0]}, ${elem.color[1]}, ${elem.color[2]})`;
     };
+
+    useLayoutEffect(() => {
+        gsap.from('.ascii-character', { opacity: 0, duration: 0.0001, stagger: 0.0001 });
+    }, [asciiMatrix]);
 
     return (
         <>
