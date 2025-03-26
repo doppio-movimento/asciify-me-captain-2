@@ -3,10 +3,13 @@ from math import ceil
 import numpy as np
 from PIL import Image
 
-GSCALE = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'.."
+STANDARD_GSCALE = (
+    "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'. "
+)
+
 
 class Asciifier:
-    def __init__(self, columns, rows, grayscale=GSCALE):
+    def __init__(self, columns, rows, grayscale=STANDARD_GSCALE):
         self.grayscale = grayscale
         self.n_columns = columns
         self.n_rows = rows

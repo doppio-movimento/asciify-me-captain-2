@@ -7,16 +7,16 @@ const Root = (props) => {
     var location = useLocation();
 
     return (
-        <div className="flex flex-col h-screen min-h-screen bg-neutral-950 p-5">
+        <div className="flex flex-col h-screen min-h-screen bg-stone-900 px-5">
             <Header
                 title={'asciify me captain'}
                 colors={[
-                    [255, 0, 255],
-                    [255, 0, 255],
-                    [255, 0, 255],
+                    [255, 255, 255],
+                    [255, 255, 255],
+                    [255, 255, 255],
                 ]}
             />
-            <div className="flex bg-black p-5 gap-2 h-8/9">
+            <div className="flex h-8/9">
         {/*<SideNavigator />*/}
                 <div className="flex justify-center place-items-center w-full">
                     <Outlet />

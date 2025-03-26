@@ -5,16 +5,18 @@ from urllib.request import urlretrieve
 import shortuuid
 from django.conf import settings
 from dotenv import load_dotenv
-from lib.ascii import Asciifier
 from openai import OpenAI
 from rest_framework.decorators import api_view
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 
+from lib.ascii import Asciifier
+
 from .models import ASCIITransform, ASCIITransformCell
 from .serializers import ASCIITransformSerializer
 
 load_dotenv()
+
 
 class ASCIITransformList(ListAPIView):
     queryset = ASCIITransform.objects.all()

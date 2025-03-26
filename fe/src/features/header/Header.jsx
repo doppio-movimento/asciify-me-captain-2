@@ -10,7 +10,7 @@ const Header = (props) => {
     const symbol = '@';
 
     return (
-        <div className="flex relative rounded p-2 h-1/9 gap-8">
+        <div className="flex relative rounded p-2 h-1/13 gap-8">
             {titleWords.map((word, i) => (
                 <div
                     className="relative"

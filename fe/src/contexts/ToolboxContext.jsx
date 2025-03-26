@@ -11,7 +11,7 @@ export const ToolboxProvider = ({ children }) => {
     const [asciiMatrix, setAsciiMatrix] = useState(null);
     const [imageUrl, setImageUrl] = useState(null);
     const [imageLoading, setImageLoading] = useState(false);
-    const [charsPerColumn, setCharsPerColumn] = useState(44);
+    const [charsPerColumn, setCharsPerColumn] = useState(52);
     const [charsPerRow, setCharsPerRow] = useState(325);
     const [charSize, setCharSize] = useState(10);
     const [filter, setFilter] = useState(/[]/);

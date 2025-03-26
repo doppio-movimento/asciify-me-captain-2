@@ -24,7 +24,7 @@ ALLOWED_HOSTS = tuple(
 )
 # CSRF_COOKIE_SECURE = bool(os.getenv("CSRF_COOKIE_SECURE", "False"))
 # SESSION_COOKIE_SECURE = bool(os.getenv("SESSION_COOKIE_SECURE", "False"))
-#CORS_ALLOWED_ORIGINS = tuple(os.getenv("CORS_ALLOWED_ORIGINS", "").split(","))
+# CORS_ALLOWED_ORIGINS = tuple(os.getenv("CORS_ALLOWED_ORIGINS", "").split(","))
 
 stripe.api_key = os.getenv("STRIPE_API_KEY")
 

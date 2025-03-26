@@ -16,6 +16,12 @@
     --color-amber-950: oklch(0.279 0.077 45.635);
     --color-yellow-500: oklch(0.795 0.184 86.047);
     --color-green-500: oklch(0.723 0.219 149.579);
+    --color-green-950: oklch(0.266 0.065 152.934);
+    --color-emerald-950: oklch(0.262 0.051 172.552);
+    --color-teal-200: oklch(0.91 0.096 180.426);
+    --color-teal-500: oklch(0.704 0.14 182.503);
+    --color-teal-900: oklch(0.386 0.063 188.416);
+    --color-teal-950: oklch(0.277 0.046 192.524);
     --color-cyan-200: oklch(0.917 0.08 205.041);
     --color-cyan-300: oklch(0.865 0.127 207.078);
     --color-cyan-400: oklch(0.789 0.154 211.53);
@@ -24,17 +30,25 @@
     --color-cyan-700: oklch(0.52 0.105 223.128);
     --color-cyan-900: oklch(0.398 0.07 227.392);
     --color-cyan-950: oklch(0.302 0.056 229.695);
+    --color-sky-950: oklch(0.293 0.066 243.157);
     --color-blue-500: oklch(0.623 0.214 259.815);
+    --color-indigo-950: oklch(0.257 0.09 281.288);
+    --color-violet-950: oklch(0.283 0.141 291.089);
+    --color-purple-950: oklch(0.291 0.149 302.717);
     --color-fuchsia-200: oklch(0.903 0.076 319.62);
     --color-fuchsia-500: oklch(0.667 0.295 322.15);
     --color-fuchsia-900: oklch(0.401 0.17 325.612);
     --color-gray-900: oklch(0.21 0.034 264.665);
     --color-gray-950: oklch(0.13 0.028 261.692);
+    --color-zinc-950: oklch(0.141 0.005 285.823);
     --color-neutral-200: oklch(0.922 0 0);
     --color-neutral-400: oklch(0.708 0 0);
     --color-neutral-800: oklch(0.269 0 0);
     --color-neutral-900: oklch(0.205 0 0);
     --color-neutral-950: oklch(0.145 0 0);
+    --color-stone-800: oklch(0.268 0.007 34.298);
+    --color-stone-900: oklch(0.216 0.006 56.043);
+    --color-stone-950: oklch(0.147 0.004 49.25);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -322,6 +336,12 @@
   .h-1\/9 {
     height: calc(1/9 * 100%);
   }
+  .h-1\/11 {
+    height: calc(1/11 * 100%);
+  }
+  .h-1\/13 {
+    height: calc(1/13 * 100%);
+  }
   .h-2 {
     height: calc(var(--spacing) * 2);
   }
@@ -373,6 +393,12 @@
   .h-full {
     height: 100%;
   }
+  .h-max {
+    height: max-content;
+  }
+  .h-min {
+    height: min-content;
+  }
   .h-screen {
     height: 100vh;
   }
@@ -390,6 +416,9 @@
   }
   .w-1\/4 {
     width: calc(1/4 * 100%);
+  }
+  .w-1\/5 {
+    width: calc(1/5 * 100%);
   }
   .w-1\/9 {
     width: calc(1/9 * 100%);
@@ -587,6 +616,12 @@
   .border-fuchsia-900 {
     border-color: var(--color-fuchsia-900);
   }
+  .border-teal-900 {
+    border-color: var(--color-teal-900);
+  }
+  .border-white {
+    border-color: var(--color-white);
+  }
   .border-y-transparent {
     border-block-color: transparent;
   }
@@ -626,11 +661,20 @@
   .bg-cyan-950 {
     background-color: var(--color-cyan-950);
   }
+  .bg-emerald-950 {
+    background-color: var(--color-emerald-950);
+  }
   .bg-fuchsia-200 {
     background-color: var(--color-fuchsia-200);
   }
   .bg-gray-950 {
     background-color: var(--color-gray-950);
+  }
+  .bg-green-950 {
+    background-color: var(--color-green-950);
+  }
+  .bg-indigo-950 {
+    background-color: var(--color-indigo-950);
   }
   .bg-neutral-400 {
     background-color: var(--color-neutral-400);
@@ -638,14 +682,41 @@
   .bg-neutral-950 {
     background-color: var(--color-neutral-950);
   }
+  .bg-purple-950 {
+    background-color: var(--color-purple-950);
+  }
   .bg-red-700 {
     background-color: var(--color-red-700);
+  }
+  .bg-sky-950 {
+    background-color: var(--color-sky-950);
+  }
+  .bg-stone-800 {
+    background-color: var(--color-stone-800);
+  }
+  .bg-stone-900 {
+    background-color: var(--color-stone-900);
+  }
+  .bg-stone-950 {
+    background-color: var(--color-stone-950);
+  }
+  .bg-teal-200 {
+    background-color: var(--color-teal-200);
+  }
+  .bg-teal-950 {
+    background-color: var(--color-teal-950);
+  }
+  .bg-violet-950 {
+    background-color: var(--color-violet-950);
   }
   .bg-white {
     background-color: var(--color-white);
   }
   .bg-yellow-500 {
     background-color: var(--color-yellow-500);
+  }
+  .bg-zinc-950 {
+    background-color: var(--color-zinc-950);
   }
   .bg-linear-to-br {
     --tw-gradient-position: to bottom right in oklab;
@@ -751,6 +822,9 @@
   }
   .text-neutral-200 {
     color: var(--color-neutral-200);
+  }
+  .text-teal-500 {
+    color: var(--color-teal-500);
   }
   .text-white {
     color: var(--color-white);

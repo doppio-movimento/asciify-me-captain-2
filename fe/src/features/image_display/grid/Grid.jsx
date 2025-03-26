@@ -18,7 +18,7 @@ const Grid = (props) => {
             {asciiMatrix ? (
                 <div
                     className="absolute z-10 break-words font-mono"
-                    style={{ width: `${charsPerRow}ch`, height: '20ch', fontSize: `${charSize}px` }}
+                    style={{ width: `${charsPerRow}ch`, height: '52em', fontSize: `${charSize}px` }}
                 >
                     {asciiMatrix.map((row, index) => (
                         <p>
@@ -31,7 +31,7 @@ const Grid = (props) => {
                 </div>
             ) : <div className="absolute z-10 text-gray-900 break-words font-mono" style={{ width: `${charsPerRow}ch`, height: '20ch'}}>
                     <p style={{fontSize: `${charSize}px`}}>
-                {Array.from(Array(charsPerRow * 20).keys()).map((k, i) => <span>x</span>)} 
+                {Array.from(Array(charsPerRow * 52).keys()).map((k, i) => <span>&#9724;</span>)} 
                     </p>
                 </div>
             }

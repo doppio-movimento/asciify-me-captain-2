@@ -34,34 +34,35 @@ const GridBox = (props) => {
     };
 
     return (
-        <div className="h-full w-1/3 border border-fuchsia-900 rounded">
-            <div className="flex flex-col h-full place-items-center gap-5">
-                <div className="flex pt-3 font-mono text-xs text-white h-1/7">
-                    Grid
-                </div>
+        <div className="h-full w-1/3 border border-teal-900 rounded">
+            <div className="flex h-full place-items-center justify-center gap-5">
                 <input
-                    className="w-1/4 bg-fuchsia-200"
+                    className="w-1/9 bg-teal-200"
                     ref={charsPerRowInputRef}
                     type="text"
                     onChange={handleCharsPerRowChange}
+                    placeholder="width"
                 />
                 <input
-                    className="w-1/4 bg-fuchsia-200"
+                    className="w-1/9 bg-teal-200"
                     ref={regexFilterInputRef}
                     type="text"
                     onMouseLeave={handleRegexFilterChange}
+                    placeholder="filter"
                 />
                 <input
-                    className="w-1/4 bg-fuchsia-200"
+                    className="w-1/9 bg-teal-200"
                     ref={charSizeInputRef}
                     type="text"
                     onMouseLeave={handleCharSizeChange}
+                    placeholder="char size"
                 />
                 <input
-                    className="w-1/4 bg-fuchsia-200"
+                    className="w-1/9 bg-teal-200"
                     ref={grayscaleInputRef}
                     type="text"
                     onChange={handleGrayscaleChange}
+                    placeholder="grayscale"
                 />
         {/*<OnOffSwitch on={gridOn} setOn={setGridOn} />
                 <ColorSelector />
