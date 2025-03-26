@@ -14,7 +14,8 @@ export const ToolboxProvider = ({ children }) => {
     const [charsPerColumn, setCharsPerColumn] = useState(44);
     const [charsPerRow, setCharsPerRow] = useState(325);
     const [charSize, setCharSize] = useState(10);
-    const [filter, setFilter] = useState(/[A-Z]/);
+    const [filter, setFilter] = useState(/[]/);
+    const [grayscale, setGrayscale] = useState("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'. ");
 
     return (
         <ToolboxContext.Provider
@@ -42,7 +43,9 @@ export const ToolboxProvider = ({ children }) => {
                 filter,
                 setFilter,
                 charSize,
-                setCharSize
+                setCharSize,
+                grayscale,
+                setGrayscale,
             }}
         >
             {children}
