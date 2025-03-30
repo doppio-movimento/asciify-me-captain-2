@@ -12,6 +12,7 @@ const PromptBox = (props) => {
         charsPerRow,
         charsPerColumn,
         grayscale,
+        phrase,
     } = useToolbox();
     var promptText = '';
     const textAreaRef = useRef(null);
@@ -28,6 +29,7 @@ const PromptBox = (props) => {
                 rows: charsPerColumn,
                 columns: charsPerRow,
                 grayscale: grayscale,
+                phrase: phrase,
             })
             .then((response) => {
                 setImageUrl(response.data.imageUrl);

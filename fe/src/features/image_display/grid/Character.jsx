@@ -36,7 +36,7 @@ const Character = (props) => {
     return (
         <span
             ref={characterRef}
-            className="ascii-character cursor-pointer"
+            className="ascii-character select-none"
             onClick={() => setIsVisible(!isVisible)}
             style={{
                 color: color,

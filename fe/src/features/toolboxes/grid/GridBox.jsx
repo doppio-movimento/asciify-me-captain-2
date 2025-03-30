@@ -9,12 +9,17 @@ import { useState, useRef } from "react";
 const GridBox = (props) => {
     const [readyToDrag, setReadyToDrag] = useState(false);
     const [dialPosition, setDialPosition] = useState(0);
-    const { gridOn, setGridOn, setCharsPerRow, setFilter, setCharSize, setGrayscale } = useToolbox();
+    const { gridOn, setGridOn, setCharsPerRow, setFilter, setCharSize, setGrayscale, setPhrase } = useToolbox();
 
     const charsPerRowInputRef = useRef();
     const regexFilterInputRef = useRef();
     const charSizeInputRef = useRef();
     const grayscaleInputRef = useRef();
+    const phraseInputRef = useRef();
+
+    const handlePhraseChange = () => {
+        setPhrase(phraseInputRef.current.value);
+    };
 
     const handleGrayscaleChange = () => {
        setGrayscale(grayscaleInputRef.current.value); 
@@ -63,6 +68,13 @@ const GridBox = (props) => {
                     type="text"
                     onChange={handleGrayscaleChange}
                     placeholder="grayscale"
+                />
+                <input
+                    className="w-1/9 bg-fuchsia-200"
+                    ref={phraseInputRef}
+                    type="text"
+                    onChange={handlePhraseChange}
+                    placeholder="phrase"
                 />
         {/*<OnOffSwitch on={gridOn} setOn={setGridOn} />
                 <ColorSelector />

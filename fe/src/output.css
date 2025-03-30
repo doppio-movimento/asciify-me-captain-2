@@ -336,9 +336,6 @@
   .h-1\/9 {
     height: calc(1/9 * 100%);
   }
-  .h-1\/11 {
-    height: calc(1/11 * 100%);
-  }
   .h-1\/13 {
     height: calc(1/13 * 100%);
   }
@@ -874,6 +871,10 @@
   .outline-none {
     --tw-outline-style: none;
     outline-style: none;
+  }
+  .select-none {
+    -webkit-user-select: none;
+    user-select: none;
   }
   .hover\:bg-cyan-200 {
     &:hover {

@@ -9,11 +9,12 @@ STANDARD_GSCALE = (
 
 
 class Asciifier:
-    def __init__(self, columns, rows, grayscale=STANDARD_GSCALE):
+    def __init__(self, columns, rows, phrase, grayscale=STANDARD_GSCALE):
         self.grayscale = grayscale
         self.n_columns = columns
         self.n_rows = rows
         self.scale = self.n_rows / self.n_columns
+        self.phrase = phrase
 
     def asciify(self, file_name):
         ascii_matrix = []
@@ -28,6 +29,7 @@ class Asciifier:
         n_tile_rows = ceil(image_height / tile_height)
 
         # Convert each tile to ascii character
+        phrase_index = 0
         for r in range(n_tile_rows):
             tile_upper_bound = int(r * tile_height)
             tile_lower_bound = (
@@ -58,6 +60,11 @@ class Asciifier:
                 ascii_matrix[r].append(
                     {"character": gscale_char, "color": self.__average_color(rgb_tile)}
                 )
+                '''phrase_char = self.phrase[phrase_index]
+                ascii_matrix[r].append(
+                    {"character": phrase_char, "color": self.__average_color(rgb_tile)}
+                )
+                phrase_index = (phrase_index + 1) % len(self.phrase)'''
         return ascii_matrix
 
     def __average_luminance(self, gs_tile):
