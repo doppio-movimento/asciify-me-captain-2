@@ -30,9 +30,9 @@ const Grid = (props) => {
                     ))}
                 </div>
             ) : <div className="absolute z-10 text-gray-900 break-words font-mono" style={{ width: `${charsPerRow}ch`, height: '20ch'}}>
-                    <p style={{fontSize: `${charSize}px`}}>
+                {/*<p style={{fontSize: `${charSize}px`}}>
                 {Array.from(Array(charsPerRow * 52).keys()).map((k, i) => <span>&#9724;</span>)} 
-                    </p>
+                    </p>*/}
                 </div>
             }
         </>

@@ -16,7 +16,8 @@ export const ToolboxProvider = ({ children }) => {
     const [charSize, setCharSize] = useState(10);
     const [filter, setFilter] = useState(/[]/);
     const [grayscale, setGrayscale] = useState("$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI>:,\"^`'. ");
-    const [phrase, setPhrase] = useState("it was gorgeousness and gorgeosity made flesh");
+    const [phrase, setPhrase] = useState("it was gorgeousness and gorgeosity flesh");
+    const [saturation, setSaturation] = useState(0);
 
     return (
         <ToolboxContext.Provider
@@ -49,6 +50,8 @@ export const ToolboxProvider = ({ children }) => {
                 setGrayscale,
                 phrase,
                 setPhrase,
+                saturation,
+                setSaturation
             }}
         >
             {children}

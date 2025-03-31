@@ -1,9 +1,12 @@
 import { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { gsap } from "gsap";
 import max from 'lodash/max';
+import min from 'lodash/min';
 import indexOf from 'lodash/indexOf';
+import { useToolbox } from "~/contexts/ToolboxContext";
 
 const Character = (props) => {
+    const { saturation } = useToolbox();
     const [isVisible, setIsVisible] = useState(true);
     const [color, setColor] = useState("black");
     const isFirstRender = useRef(true);
@@ -14,7 +17,7 @@ const Character = (props) => {
         // naive saturation
         let maxIndex = indexOf(props.element.color, max(props.element.color));
         let rgb = props.element.color;
-        rgb[maxIndex] = 255;
+        rgb[maxIndex] = rgb[maxIndex] * saturation;
         //setColor(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
     }, []);
 

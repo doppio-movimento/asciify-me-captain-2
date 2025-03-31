@@ -1,6 +1,6 @@
 import ModeBox from '~/features/toolboxes/mode/ModeBox';
 import DownloadBox from '~/features/toolboxes/download/DownloadBox';
-import GridBox from '~/features/toolboxes/grid/GridBox';
+import ToolBox from '~/features/toolbox/ToolBox';
 import GrayscaleBox from '~/features/toolboxes/grayscale/GrayscaleBox';
 import ASCIITransformBox from '~/features/toolboxes/ascii_transform/ASCIITransformBox';
 import ImageDisplay from "~/features/image_display/ImageDisplay";
@@ -19,7 +19,7 @@ const Home = (props) => {
                     <ImageDisplay />
                     <div className="flex w-full">
                         <PromptBox />
-                        <GridBox />
+                        <ToolBox />
                     </div>
 
                 </div>
