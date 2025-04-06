@@ -7,6 +7,7 @@ import { useToolbox } from "~/contexts/ToolboxContext";
 
 const Character = (props) => {
     const { saturation } = useToolbox();
+    const [character, setCharacter] = useState(props.element.character);
     const [isVisible, setIsVisible] = useState(true);
     const [color, setColor] = useState("black");
     const isFirstRender = useRef(true);
@@ -20,6 +21,17 @@ const Character = (props) => {
         rgb[maxIndex] = rgb[maxIndex] * saturation;
         //setColor(`rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`);
     }, []);
+
+    const handleInput = (e) => {
+        let content = e.target.innerText;
+        if (content.length === 1) {
+            setCharacter(content);
+        } else if (content.length === 0) {
+            setCharacter(' ');
+        } else {
+            setCharacter(' ');
+        }
+    };
 
     useLayoutEffect(() => {
         if (!props.filter.test(props.element.character) && !isVisible) {
@@ -38,15 +50,16 @@ const Character = (props) => {
 
     return (
         <span
+            contentEditable="true"
             ref={characterRef}
-            className="ascii-character select-none"
-            onClick={() => setIsVisible(!isVisible)}
+            className="ascii-character"
+            onInput={handleInput}
             style={{
                 color: color,
             }}
             onMouseEnter={() => setIsVisible(false)}
         >
-            {props.element.character}
+            {character}
         </span>
     );
 };
