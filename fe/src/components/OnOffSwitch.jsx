@@ -4,9 +4,7 @@ const OnOffSwitch = (props) => {
             <div
                 className="w-2/7 h-2 rounded-xl relative"
                 style={{
-                    backgroundColor: props.on
-                        ? 'rgb(30,30,30)'
-                        : 'rgb(5,5,5)',
+                    backgroundColor: props.on ? 'rgb(30,30,30)' : 'rgb(5,5,5)',
                 }}
                 onClick={() => props.setOn(!props.on)}
             >

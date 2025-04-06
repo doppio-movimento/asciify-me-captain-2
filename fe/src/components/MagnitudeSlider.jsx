@@ -46,7 +46,7 @@ const MagnitudeSlider = (props) => {
     return (
         <div className="h-2/7 w-full flex flex-col place-items-center gap-2 mb-2">
             <div className="text-amber-500 font-mono flex justify-center text-xs">
-                {props.quantityTitle} 
+                {props.quantityTitle}
             </div>
             <div
                 className="relative"
